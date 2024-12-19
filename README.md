@@ -109,3 +109,4 @@ Hệ thống cho phép người dùng (bao gồm Khách - Guest, Thành viên - 
 Xem chi tiết tại file [HELP.md](HELP.md).
 
 ## License
+Xem chi tiết tại file [License.txt](License.txt).
