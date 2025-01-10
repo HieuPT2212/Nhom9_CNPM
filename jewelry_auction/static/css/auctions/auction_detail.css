@@ -1,0 +1,145 @@
+/* static/css/auctions/auction_detail.css */
+
+.auction-container {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 25px;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+.auction-heading {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #2980b9; /* Blue */
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.auction-details {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail-line {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.detail-label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #333;
+    width: 120px; /* Fixed width for alignment */
+}
+
+.detail-value {
+    color: #555;
+}
+
+.product-link {
+    color: #e67e22; /* Orange */
+    text-decoration: none;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+}
+
+.manager-controls {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.control-btn {
+    background-color: #3498db; /* Blue */
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.control-btn:hover {
+    background-color: #2980b9; /* Darker Blue */
+}
+
+.bids-heading {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.bids-listing {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.bid-entry {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bidder-name {
+    font-weight: bold;
+    color: #e67e22; /* Orange */
+}
+
+.bid-info {
+    display: flex;
+    align-items: center;
+}
+
+.bid-sum {
+    color: #27ae60; /* Green */
+    margin-right: 10px;
+}
+
+.bid-date {
+    font-size: 14px;
+    color: #777;
+}
+
+.no-bids-msg {
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.bid-placement {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.place-bid-btn {
+    background-color: #2ecc71; /* Green */
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.place-bid-btn:hover {
+    background-color: #27ae60; /* Darker Green */
+}
