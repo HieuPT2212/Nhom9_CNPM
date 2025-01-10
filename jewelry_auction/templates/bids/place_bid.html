@@ -1,23 +1,45 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/bids/place_bid.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Place Bid for {{ auction.jewelry.name }}</h2>
-<p>Current highest bid: 
-    {% if auction.bids.all %}
-        {{ auction.bids.all.last.amount }}
-    {% else %}
-        {{ auction.jewelry.initial_price }}
+<div class="place-bid-container">
+    <h2 class="place-bid-heading">Place Bid for <span class="auction-name">{{ auction.jewelry.name }}</span></h2>
+    <p class="auction-info">(Auction ID: <span class="auction-id">{{ auction.auction_id }})</span></p>
+
+    {% if auction.status == 'OPEN' %}
+        <p class="start-price">Starting price: {{ auction.start_price }}</p>
+
+        <form method="post" class="place-bid-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>Errors:</strong>
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <button type="submit" class="place-bid-button">Place Bid</button>
+        </form>
+    {% elif auction.status == 'CREATED' %}
+        <p class="auction-status-message">The auction has not started yet.</p>
+    {% elif auction.status == 'CLOSED'%}
+        <p class="auction-status-message">The auction has ended.</p>
+    {% elif auction.status == 'CANCELED'%}
+        <p class="auction-status-message">The auction has been canceled.</p>
     {% endif %}
-</p>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Place Bid</button>
-</form>
-<a href="{% url 'auctions:auction-detail' auction.pk %}">Back to Auction</a>
+
+    <a href="{% url 'auctions:auction-detail' auction.pk %}" class="back-to-auction-link">Back to Auction</a>
+</div>
 {% endblock %}
