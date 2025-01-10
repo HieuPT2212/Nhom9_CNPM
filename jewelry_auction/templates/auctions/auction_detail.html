@@ -1,37 +1,72 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auction/auction_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/auctions/auction_detail.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Auction Details</h1>
-<p>Jewelry: <a href="{% url 'jewelry:jewelry-detail' auction.jewelry.pk %}">{{ auction.jewelry.name }}</a></p>
-<p>Manager: {{ auction.manager.username }}</p>
-{% if auction.staff %}
-    <p>Staff: {{ auction.staff.username }}</p>
-{% endif %}
-<p>Start Time: {{ auction.start_time }}</p>
-<p>End Time: {{ auction.end_time }}</p>
-<p>Status: {{ auction.get_status_display }}</p>
+<div class="auction-container">
+    <h1 class="auction-heading">Auction Details</h1>
 
-{% if user == auction.manager %}
-    <a href="{% url 'auctions:auction-update' auction.pk %}">Edit</a>
-    <a href="{% url 'auctions:auction-delete' auction.pk %}">Delete</a>
-    <a href="{% url 'auctions:auction-cancel' auction.pk %}">Cancel</a>
-{% endif %}
+    <div class="auction-details">
+        <div class="detail-line">
+            <span class="detail-label">Jewelry:</span>
+            <a class="product-link detail-value" href="{% url 'jewelry:jewelry-detail' auction.jewelry.pk %}">{{ auction.jewelry.name }}</a>
+        </div>
+        <div class="detail-line">
+            <span class="detail-label">Manager:</span>
+            <span class="detail-value">{{ auction.manager.username }}</span>
+        </div>
+        {% if auction.staff %}
+        <div class="detail-line">
+            <span class="detail-label">Staff:</span>
+            <span class="detail-value">{{ auction.staff.username }}</span>
+        </div>
+        {% endif %}
+        <div class="detail-line">
+            <span class="detail-label">Start Time:</span>
+            <span class="detail-value">{{ auction.start_time }}</span>
+        </div>
+        <div class="detail-line">
+            <span class="detail-label">End Time:</span>
+            <span class="detail-value">{{ auction.end_time }}</span>
+        </div>
+        <div class="detail-line">
+            <span class="detail-label">Status:</span>
+            <span class="detail-value">{{ auction.get_status_display }}</span>
+        </div>
+    </div>
 
-<h2>Bids</h2>
-<ul>
-    {% for bid in auction.bids.all %}
-    <li>{{ bid.user.username }}: {{ bid.amount }} JCoins - {{ bid.timestamp }}</li>
-    {% empty %}
-    <li>No bids yet.</li>
-    {% endfor %}
-</ul>
+    {% if user == auction.manager %}
+    <div class="manager-controls">
+        <a class="control-btn" href="{% url 'auctions:auction-update' auction.pk %}">Edit</a>
+        <a class="control-btn" href="{% url 'auctions:auction-delete' auction.pk %}">Delete</a>
+        <a class="control-btn" href="{% url 'auctions:auction-cancel' auction.pk %}">Cancel</a>
+    </div>
+    {% endif %}
 
-{% if user.is_authenticated and auction.status == 'OPEN' %}
-    <a href="{% url 'bids:place_bid' auction.pk %}">Place Bid</a>
-{% endif %}
+    <h2 class="bids-heading">Bids</h2>
+    {% if auction.bids.all %}
+    <ul class="bids-listing">
+        {% for bid in auction.bids.all %}
+        <li class="bid-entry">
+            <span class="bidder-name">{{ bid.user.username }}</span>
+            <div class="bid-info">
+                <span class="bid-sum">{{ bid.amount }} JCoins</span>
+                <span class="bid-date">- {{ bid.timestamp }}</span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-bids-msg">No bids yet.</p>
+    {% endif %}
+
+    {% if user.is_authenticated and auction.status == 'OPEN' %}
+    <div class="bid-placement">
+        <a class="place-bid-btn" href="{% url 'bids:place_bid' auction.pk %}">Place Bid</a>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}
