@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auction/auction_cancel.css' %}">
+<link rel="stylesheet" href="{% static 'css/auctions/auction_cancel.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Cancel Auction</h2>
-<p>Are you sure you want to cancel auction for {{ auction.jewelry.name }}?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Cancel</button>
-    <a href="{% url 'auctions:auction-detail' auction.pk %}">Cancel</a>
-</form>
+<div class="cancel-auction-container">
+    <h2>Cancel Auction</h2>
+    <p>Are you sure you want to cancel auction for <span class="jewelry-name">{{ auction.jewelry.name }}</span>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Cancel</button>
+        <a href="{% url 'auctions:auction-detail' auction.pk %}">Go Back</a>
+    </form>
+</div>
 {% endblock %}
