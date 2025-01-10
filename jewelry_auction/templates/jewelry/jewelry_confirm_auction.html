@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_confirm_auction.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Confirm Auction</h2>
-<p>Do you confirm to put {{ jewelry.name }} up for auction?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirm</button>
-    <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">Cancel</a>
-</form>
+<div class="confirm-container">
+    <h2>Confirm Auction</h2>
+    <p>Do you confirm to put {{ jewelry.name }} up for auction?</p>
+    <form method="post" class="confirm-form">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+        <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}" class="cancel-button">Cancel</a>
+    </form>
+</div>
 {% endblock %}
