@@ -1,16 +1,17 @@
-{% extends 'base.html' %}
-{%load static%}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/jewelry/jewelry_approve.css' %}">
-{% endblock %}
-
-{% block content %}
-<h2>Approve Jewelry</h2>
-<p>Do you approve {{ jewelry.name }} for auction?</p>
-<form method="post">
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jewelry/jewelry_approve.css' %}" />
+{% endblock %} {% block content %}
+<div class="approval-container">
+  <h2>Approve Jewelry</h2>
+  <p>Do you approve {{ jewelry.name }} for auction?</p>
+  <form method="post" class="approval-form">
     {% csrf_token %}
     <button type="submit">Approve</button>
-    <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">Cancel</a>
-</form>
+    <a
+      href="{% url 'jewelry:jewelry-detail' jewelry.pk %}"
+      class="cancel-button"
+      >Cancel</a
+    >
+  </form>
+</div>
 {% endblock %}
