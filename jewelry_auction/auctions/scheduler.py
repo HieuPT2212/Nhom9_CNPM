@@ -23,7 +23,7 @@ def close_auctions():
 def start_scheduler():
     """Bắt đầu lên lịch các tác vụ."""
     if not scheduler.running:
-        scheduler.add_job(open_auctions, 'interval', minutes=1)  # Kiểm tra mỗi phút để mở phiên đấu giá
-        scheduler.add_job(close_auctions, 'interval', minutes=1)  # Kiểm tra mỗi phút để đóng phiên đấu giá
+        scheduler.add_job(open_auctions, 'interval', seconds=1)  # Kiểm tra mỗi phút để mở phiên đấu giá
+        scheduler.add_job(close_auctions, 'interval', seconds=1)  # Kiểm tra mỗi phút để đóng phiên đấu giá
         scheduler.start()
         print("Scheduler started.")
