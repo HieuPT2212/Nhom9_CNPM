@@ -1,0 +1,93 @@
+/* static/css/transaction/transaction_list.css */
+
+.transactions-container {
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.transactions-heading {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.transactions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.transaction-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-link {
+  color: #007bff; /* Blue */
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.transaction-link:hover {
+  text-decoration: underline;
+}
+
+.transaction-auction {
+  color: #28a745; /* Green */
+  font-weight: 600;
+}
+
+.transaction-status {
+  color: #d9534f; /* Red */
+  font-weight: 600;
+}
+
+.transaction-time {
+  font-size: 14px;
+  color: #777;
+}
+
+.no-transactions-message {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  margin-top: 20px;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #007bff; /* Blue */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  border-radius: 4px;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0;
+}
+
+.pagination .current {
+  padding: 8px 16px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: 1px solid #007bff; /* Blue */
+  margin: 0 4px;
+  border-radius: 4px;
+}
+
+.pagination .step-links {
+  display: inline-block;
+}
