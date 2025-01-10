@@ -1,0 +1,172 @@
+/* jewelry_list.css */
+
+/* Toàn trang */
+body {
+    font-family: "Arial", sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Tiêu đề */
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Form tìm kiếm */
+  #search-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px; /* Tăng khoảng cách với phần tử phía dưới */
+      align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    }
+    
+    #search-form input[type="text"] {
+      padding: 12px 20px; /* Tăng padding */
+      border: 2px solid #007bff; /* Viền đậm hơn, màu xanh */
+      border-radius: 25px 0 0 25px; /* Bo tròn góc nhiều hơn */
+      font-size: 16px;
+      width: 350px; /* Tăng độ rộng */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+      outline: none; /* Loại bỏ viền outline khi focus */
+    }
+    
+    #search-form input[type="text"]:focus {
+      border-color: #0056b3; /* Đổi màu viền khi focus */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn khi focus */
+    }
+    
+    #search-form button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px; /* Tăng padding */
+      border: none;
+      border-radius: 0 25px 25px 0; /* Bo tròn góc nhiều hơn */
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng đổ bóng */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    }
+    
+    #search-form button:hover {
+      background-color: #0056b3;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn khi hover */
+    }
+    
+    /* Liên kết sắp xếp */
+    #sort-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px; /* Tăng khoảng cách với phần tử phía dưới */
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    #sort-links a {
+      margin: 5px 0px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+      white-space: nowrap;
+      padding: 8px 16px; /* Thêm padding */
+      border-radius: 20px; /* Bo tròn góc */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+      border: 1px solid #007bff;
+    }
+    
+    #sort-links a:hover {
+      text-decoration: none; /* Loại bỏ gạch chân khi hover */
+      background-color: #007bff; /* Đổi màu nền khi hover */
+      color: white; /* Đổi màu chữ khi hover */
+    }
+  /* Lưới hiển thị sản phẩm */
+  .jewelry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Khung từng sản phẩm */
+  .jewelry-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .jewelry-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Hình ảnh sản phẩm */
+  .jewelry-item img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Tên sản phẩm */
+  .jewelry-item h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Thông tin sản phẩm */
+  .jewelry-item p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  /* Phân trang */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination a,
+  .pagination .current {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .pagination a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .pagination .current {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    #search-form input[type="text"] {
+      width: 200px;
+    }
+  
+    .jewelry-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .jewelry-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

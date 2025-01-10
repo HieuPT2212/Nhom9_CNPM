@@ -1,0 +1,86 @@
+/* jewelry_update.css */
+
+/* Toàn trang */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px;
+  background-color: #f8f8f8;
+}
+
+/* Khu vực chính */
+.update-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề */
+.update-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Form */
+.update-form {
+  margin-bottom: 20px;
+}
+
+/* Label */
+.update-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Input, Textarea, Select */
+.update-form input[type="text"],
+.update-form input[type="number"],
+.update-form input[type="file"],
+.update-form input[type="date"],
+.update-form textarea,
+.update-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.update-form input:focus,
+.update-form textarea:focus,
+.update-form select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Textarea */
+.update-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* Nút Save */
+.update-form button[type="submit"] {
+  background-color: #28a745; /* Màu xanh lá */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.update-form button[type="submit"]:hover {
+  background-color: #218838; /* Màu xanh lá đậm hơn khi hover */
+}

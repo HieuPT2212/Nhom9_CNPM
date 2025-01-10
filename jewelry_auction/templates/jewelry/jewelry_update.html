@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_update.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Edit Jewelry</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+<div class="update-container">
+    <h2>Edit Jewelry</h2>
+    <form method="post" enctype="multipart/form-data" class="update-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auction/auction_update.css' %}">
+<link rel="stylesheet" href="{% static 'css/auctions/auction_update.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Edit Auction</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+<div class="edit-auction-container">
+    <h2 class="edit-auction-heading">Edit Auction</h2>
+    <form method="post" class="edit-auction-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
 {% endblock %}
