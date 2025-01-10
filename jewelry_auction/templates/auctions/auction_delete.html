@@ -1,16 +1,16 @@
-{% extends 'base.html' %}
-{%load static%}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auction/auction_delete.css' %}">
-{% endblock %}
-
-{% block content %}
-<h2>Delete Auction</h2>
-<p>Are you sure you want to delete auction for {{ auction.jewelry.name }}?</p>
-<form method="post">
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/auctions/auction_delete.css' %}" />
+{% endblock %} {% block content %}
+<div class="delete-container">
+  <h2>Delete Auction</h2>
+  <p>
+    Are you sure you want to delete the auction for
+    <strong>{{ auction.jewelry.name }}</strong>?
+  </p>
+  <form method="post">
     {% csrf_token %}
     <button type="submit">Delete</button>
     <a href="{% url 'auctions:auction-detail' auction.pk %}">Cancel</a>
-</form>
+  </form>
+</div>
 {% endblock %}

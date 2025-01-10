@@ -1,0 +1,42 @@
+/* static/css/auctions/auction_delete.css */
+
+h2 {
+  color: #d9534f; /* Màu đỏ cảnh báo */
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+button[type="submit"] {
+  background-color: #d9534f; /* Màu đỏ */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #c9302c; /* Màu đỏ đậm hơn khi hover */
+}
+
+a {
+  background-color: #f0f0f0; /* Màu xám nhạt */
+  color: #333;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #e0e0e0; /* Màu xám đậm hơn khi hover */
+}
