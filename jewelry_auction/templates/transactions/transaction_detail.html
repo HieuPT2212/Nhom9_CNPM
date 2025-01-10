@@ -1,19 +1,55 @@
-{% extends 'base.html' %}
-{%load static%}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/transactions/transaction_detail.css' %}"
+/>
+{% endblock %} {% block content %}
+<div class="transaction-detail-container">
+  <h1 class="transaction-heading">Transaction Details</h1>
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/transaction/transaction_detail.css' %}">
-{% endblock %}
+  <div class="transaction-details">
+    <div class="detail-line">
+      <span class="detail-label">Transaction ID:</span>
+      <span class="detail-value">{{ transaction.transaction_id }}</span>
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Auction:</span>
+      <a
+        class="auction-link detail-value"
+        href="{% url 'auctions:auction-detail' transaction.auction.pk %}"
+        >{{ transaction.auction.jewelry.name }}</a
+      >
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Winner:</span>
+      <span class="detail-value"
+        >{{ transaction.winning_bidder.username }}</span
+      >
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Seller:</span>
+      <span class="detail-value">{{ transaction.jewelry_owner.username }}</span>
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Amount:</span>
+      <span class="detail-value">{{ transaction.amount }}</span>
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Fee:</span>
+      <span class="detail-value">{{ transaction.fee }}</span>
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Status:</span>
+      <span class="detail-value">{{ transaction.get_status_display }}</span>
+    </div>
+    <div class="detail-line">
+      <span class="detail-label">Timestamp:</span>
+      <span class="detail-value">{{ transaction.timestamp }}</span>
+    </div>
+  </div>
 
-{% block content %}
-<h1>Transaction Details</h1>
-<p>Transaction ID: {{ transaction.transaction_id }}</p>
-<p>Auction: <a href="{% url 'auctions:auction-detail' transaction.auction.pk %}">{{ transaction.auction.jewelry.name }}</a></p>
-<p>Winner: {{ transaction.winning_bidder.username }}</p>
-<p>Seller: {{ transaction.jewelry_owner.username }}</p>
-<p>Amount: {{ transaction.amount }}</p>
-<p>Fee: {{ transaction.fee }}</p>
-<p>Status: {{ transaction.get_status_display }}</p>
-<p>Timestamp: {{ transaction.timestamp }}</p>
-<a href="{% url 'transactions:transaction-list' %}">Back to Transactions</a>
+  <a href="{% url 'transactions:transaction-list' %}" class="back-link"
+    >Back to Transactions</a
+  >
+</div>
 {% endblock %}
