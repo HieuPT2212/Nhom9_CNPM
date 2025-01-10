@@ -1,16 +1,17 @@
-{% extends 'base.html' %}
-{%load static%}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/jewelry/jewelry_reject.css' %}">
-{% endblock %}
-
-{% block content %}
-<h2>Reject Jewelry</h2>
-<p>Do you reject {{ jewelry.name }}?</p>
-<form method="post">
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jewelry/jewelry_reject.css' %}" />
+{% endblock %} {% block content %}
+<div class="reject-container">
+  <h2>Reject Jewelry</h2>
+  <p>Do you reject {{ jewelry.name }}?</p>
+  <form method="post" class="reject-form">
     {% csrf_token %}
     <button type="submit">Reject</button>
-    <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">Cancel</a>
-</form>
+    <a
+      href="{% url 'jewelry:jewelry-detail' jewelry.pk %}"
+      class="cancel-button"
+      >Cancel</a
+    >
+  </form>
+</div>
 {% endblock %}
