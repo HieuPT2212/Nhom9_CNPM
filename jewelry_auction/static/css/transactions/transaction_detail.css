@@ -1,0 +1,60 @@
+.transaction-detail-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.transaction-heading {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.transaction-details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.detail-line {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.detail-label {
+  font-weight: 600;
+  margin-right: 10px;
+  color: #333;
+  width: 150px; /* Adjust width as needed */
+}
+
+.detail-value {
+  color: #555;
+}
+
+.auction-link {
+  color: #007bff; /* Blue */
+  text-decoration: none;
+}
+
+.auction-link:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #0056b3; /* Darker Blue */
+}
