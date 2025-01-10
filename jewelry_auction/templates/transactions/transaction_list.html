@@ -1,43 +1,53 @@
-{% extends 'base.html' %}
-{%load static%}
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/transactions/transaction_list.css' %}"
+/>
+{% endblock %} {% block content %}
+<div class="transactions-container">
+  <h1 class="transactions-heading">Transactions</h1>
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/transaction/transaction_list.css' %}">
-{% endblock %}
-
-{% block content %}
-<h1>Transactions</h1>
-
-<ul>
+  <ul class="transactions-list">
     {% for transaction in transactions %}
-    <li>
-        <a href="{% url 'transactions:transaction-detail' transaction.pk %}">
-            Transaction {{ transaction.transaction_id }}
-        </a>
-        - Auction: {{ transaction.auction.jewelry.name }}
-        - Status: {{ transaction.get_status_display }}
-        - Time: {{ transaction.timestamp }}
+    <li class="transaction-item">
+      <a
+        class="transaction-link"
+        href="{% url 'transactions:transaction-detail' transaction.pk %}"
+      >
+        Transaction {{ transaction.transaction_id }}
+      </a>
+      - Auction:
+      <span class="transaction-auction"
+        >{{ transaction.auction.jewelry.name }}</span
+      >
+      - Status:
+      <span class="transaction-status"
+        >{{ transaction.get_status_display }}</span
+      >
+      - Time: <span class="transaction-time">{{ transaction.timestamp }}</span>
     </li>
     {% empty %}
-    <li>No transactions found.</li>
+    <li class="no-transactions-message">No transactions found.</li>
     {% endfor %}
-</ul>
+  </ul>
 
-<div class="pagination">
+  <div class="pagination">
     <span class="step-links">
-        {% if transactions.has_previous %}
-            <a href="?page=1">« first</a>
-            <a href="?page={{ transactions.previous_page_number }}">previous</a>
-        {% endif %}
+      {% if transactions.has_previous %}
+      <a href="?page=1">« first</a>
+      <a href="?page={{ transactions.previous_page_number }}">previous</a>
+      {% endif %}
 
-        <span class="current">
-            Page {{ transactions.number }} of {{ transactions.paginator.num_pages }}.
-        </span>
+      <span class="current">
+        Page {{ transactions.number }} of {{ transactions.paginator.num_pages
+        }}.
+      </span>
 
-        {% if transactions.has_next %}
-            <a href="?page={{ transactions.next_page_number }}">next</a>
-            <a href="?page={{ transactions.paginator.num_pages }}">last »</a>
-        {% endif %}
+      {% if transactions.has_next %}
+      <a href="?page={{ transactions.next_page_number }}">next</a>
+      <a href="?page={{ transactions.paginator.num_pages }}">last »</a>
+      {% endif %}
     </span>
+  </div>
 </div>
 {% endblock %}
