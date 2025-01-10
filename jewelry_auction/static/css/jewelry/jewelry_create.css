@@ -1,0 +1,91 @@
+/* jewelry_create.css */
+
+.create-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 40px; /* Tăng padding */
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng rõ hơn */
+    overflow: hidden; /* Ẩn phần thừa */
+    position: relative; /* Để position các element con */
+  }
+  
+  /* Hiệu ứng gradient background */
+  .create-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      #fdfbfb 0%,
+      #ebedee 100%
+    ); /* Gradient nhẹ */
+    z-index: -1; /* Nằm dưới các element khác */
+  }
+  
+  /* Tiêu đề */
+  .create-container h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); /* Đổ bóng cho chữ */
+  }
+  
+  /* Các label trong form */
+  .create-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #444;
+    letter-spacing: 0.5px; /* Giãn cách chữ */
+  }
+  /* Các nút bấm */
+  .create-form button[type="submit"] {
+    background-color: #007bff; /* Màu xanh dương */
+    color: white;
+    padding: 12px 25px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng cho nút */
+  }
+  
+  .create-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Màu xanh dương đậm hơn khi hover */
+    transform: translateY(-2px); /* Nút hơi nâng lên khi hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); /* Đổ bóng rõ hơn khi hover */
+  }
+  /* Các input, textarea, select trong form */
+  .create-form input[type="text"],
+  .create-form input[type="number"],
+  .create-form input[type="file"],
+  .create-form input[type="date"],
+  .create-form textarea,
+  .create-form select {
+    width: 100%;
+    padding: 15px; /* Tăng padding */
+    margin-bottom: 20px; /* Tăng margin */
+    border: none; /* Bỏ border */
+    border-radius: 8px; /* Bo góc nhiều hơn */
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f5f5f5; /* Màu nền input */
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng chìm cho input */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển động cho box-shadow */
+  }
+  
+  /* Focus vào input, textarea, select */
+  .create-form input:focus,
+  .create-form textarea:focus,
+  .create-form select:focus {
+    outline: none;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1), 0 0 5px #007bff; /* Đổ bóng chìm và viền xanh khi focus */
+  }
