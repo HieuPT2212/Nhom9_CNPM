@@ -1,70 +1,77 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/auction/auction_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/auctions/auction_list.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Auctions</h1>
-{% if user.role == 'MANAGER' %}
-    <a href="{% url 'auctions:auction-create' %}">Create Auction</a>
-    <form method="get">
-        <label for="status">Status:</label>
-        <select name="status" id="status">
-            <option value="">All</option>
-            <option value="CREATED">Created</option>
-            <option value="OPEN">Open</option>
-            <option value="CLOSED">Closed</option>
-            <option value="CANCELED">Canceled</option>
-        </select>
-        <button type="submit">Filter</button>
+<div class="auction-list-page">
+    <h1 class="page-title">Auctions</h1>
+
+    {% if user.role == 'MANAGER' %}
+    <div class="manager-actions">
+        <a href="{% url 'auctions:auction-create' %}" class="create-auction-button">Create Auction</a>
+        <form method="get" class="filter-form">
+            <label for="status" class="filter-label">Status:</label>
+            <select name="status" id="status" class="filter-select">
+                <option value="">All</option>
+                <option value="CREATED">Created</option>
+                <option value="OPEN">Open</option>
+                <option value="CLOSED">Closed</option>
+                <option value="CANCELED">Canceled</option>
+            </select>
+            <button type="submit" class="filter-button">Filter</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <form method="get" class="search-form">
+        <input type="text" name="search" placeholder="Search by jewelry, owner, manager, staff..." class="search-input">
+        <button type="submit" class="search-button">Search</button>
     </form>
-{% endif %}
 
-<form method="get">
-    <input type="text" name="search" placeholder="Search by jewelry, owner, manager, staff...">
-    <button type="submit">Search</button>
-</form>
+    <div class="sort-options">
+        <a href="?sort=jewelry__name" class="sort-link">Sort by Jewelry Name (Ascending)</a>
+        <a href="?sort=-jewelry__name" class="sort-link">Sort by Jewelry Name (Descending)</a>
+        <a href="?sort=start_time" class="sort-link">Sort by Start Time (Ascending)</a>
+        <a href="?sort=-start_time" class="sort-link">Sort by Start Time (Descending)</a>
+        <a href="?sort=end_time" class="sort-link">Sort by End Time (Ascending)</a>
+        <a href="?sort=-end_time" class="sort-link">Sort by End Time (Descending)</a>
+        <a href="?sort=status" class="sort-link">Sort by Status (Ascending)</a>
+        <a href="?sort=-status" class="sort-link">Sort by Status (Descending)</a>
+    </div>
 
-<a href="?sort=jewelry__name">Sort by Jewelry Name (Ascending)</a>
-<a href="?sort=-jewelry__name">Sort by Jewelry Name (Descending)</a>
-<a href="?sort=start_time">Sort by Start Time (Ascending)</a>
-<a href="?sort=-start_time">Sort by Start Time (Descending)</a>
-<a href="?sort=end_time">Sort by End Time (Ascending)</a>
-<a href="?sort=-end_time">Sort by End Time (Descending)</a>
-<a href="?sort=status">Sort by Status (Ascending)</a>
-<a href="?sort=-status">Sort by Status (Descending)</a>
+    <ul class="auction-list">
+        {% for auction in auctions %}
+        <li class="auction-item">
+            <a href="{% url 'auctions:auction-detail' auction.pk %}" class="auction-link">
+                {{ auction.jewelry.name }} - {{ auction.get_status_display }}
+            </a>
+            <p class="auction-info">Start Time: {{ auction.start_time }}</p>
+            <p class="auction-info">End Time: {{ auction.end_time }}</p>
+        </li>
+        {% empty %}
+        <li class="no-auctions">No auctions found.</li>
+        {% endfor %}
+    </ul>
 
-<ul>
-    {% for auction in auctions %}
-    <li>
-        <a href="{% url 'auctions:auction-detail' auction.pk %}">
-            {{ auction.jewelry.name }} - {{ auction.get_status_display }}
-        </a>
-        <p>Start Time: {{ auction.start_time }}</p>
-        <p>End Time: {{ auction.end_time }}</p>
-    </li>
-    {% empty %}
-    <li>No auctions found.</li>
-    {% endfor %}
-</ul>
+    <div class="pagination">
+        <span class="page-links">
+            {% if auctions.has_previous %}
+                <a href="?page=1" class="page-link">« first</a>
+                <a href="?page={{ auctions.previous_page_number }}" class="page-link">previous</a>
+            {% endif %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if auctions.has_previous %}
-            <a href="?page=1">« first</a>
-            <a href="?page={{ auctions.previous_page_number }}">previous</a>
-        {% endif %}
+            <span class="current-page">
+                Page {{ auctions.number }} of {{ auctions.paginator.num_pages }}.
+            </span>
 
-        <span class="current">
-            Page {{ auctions.number }} of {{ auctions.paginator.num_pages }}.
+            {% if auctions.has_next %}
+                <a href="?page={{ auctions.next_page_number }}" class="page-link">next</a>
+                <a href="?page={{ auctions.paginator.num_pages }}" class="page-link">last »</a>
+            {% endif %}
         </span>
-
-        {% if auctions.has_next %}
-            <a href="?page={{ auctions.next_page_number }}">next</a>
-            <a href="?page={{ auctions.paginator.num_pages }}">last »</a>
-        {% endif %}
-    </span>
+    </div>
 </div>
 {% endblock %}
