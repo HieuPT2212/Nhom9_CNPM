@@ -1,5 +1,3 @@
-/* static/css/blog/blog_create.css */
-
 body {
   font-family: sans-serif;
 }
@@ -43,7 +41,7 @@ form textarea {
   border-radius: 5px;
   font-size: 1em;
   box-sizing: border-box;
-  -webkit-appearance: none; /* Xóa bỏ style mặc định của trình duyệt */
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
@@ -75,7 +73,6 @@ form button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   form {
     width: 95%;

@@ -23,57 +23,55 @@
     flex-direction: column;
     min-height: 100vh;
     color: #333;
-    overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+    overflow-x: hidden;
   }
   
   header {
     background-color: #fff;
-    padding: 10px 15px; /* Giảm padding của header */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    padding: 10px 15px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    display: flex; /* Sử dụng flexbox cho header */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    justify-content: space-between; /* Căn đều khoảng cách */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-/* CSS cho logo và tiêu đề h2 */
 header {
-  display: flex; /* Sử dụng flexbox để căn chỉnh */
-  align-items: center; /* Căn giữa các phần tử theo chiều dọc */
-  padding: 10px 20px; /* Thêm padding cho header */
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .logo {
-  height: 40px; /* Kích thước logo */
-  width: 40px; /* Kích thước logo */
-  border-radius: 50%; /* Bo tròn logo */
-  object-fit: cover; /* Giữ nguyên tỷ lệ ảnh */
-  margin-right: 15px; /* Khoảng cách giữa logo và tiêu đề */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
 }
 
 header h2 {
-  font-size: 24px; /* Kích thước chữ */
-  color: #333; /* Màu chữ */
-  margin: 0; /* Loại bỏ margin mặc định */
-  font-family: 'Montserrat', sans-serif; /* Font chữ */
-  font-weight: 650; /* Chữ đậm */
-  text-transform: uppercase; /* Viết hoa toàn bộ */
-  flex-grow: 1; /* Cho phép h2 chiếm phần còn lại của header */
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 650;
+  text-transform: uppercase; 
+  flex-grow: 1; 
 }
 
-/* Responsive cho logo và tiêu đề */
 @media (max-width: 768px) {
   .logo {
-    height: 30px; /* Giảm kích thước logo trên thiết bị nhỏ */
+    height: 30px;
     width: 30px;
-    margin-right: 10px; /* Giảm khoảng cách */
+    margin-right: 10px; 
   }
 
   header h2 {
-    font-size: 18px; /* Giảm kích thước chữ trên thiết bị nhỏ */
+    font-size: 18px;
   }
 }
   nav ul {
@@ -82,7 +80,6 @@ header h2 {
     padding: 0;
     display: flex;
     align-items: center;
-    /* justify-content: center; Bỏ justify-content để logo và menu tách biệt */
   }
   
   nav li {
@@ -92,31 +89,30 @@ header h2 {
   nav a {
     text-decoration: none;
     color: #333;
-    padding: 10px 15px; /* Tăng padding */
-    border-radius: 20px; /* Bo tròn góc */
+    padding: 10px 15px; 
+    border-radius: 20px; 
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Montserrat', sans-serif; /* Thay đổi font chữ cho menu */
-    font-weight: 600; /* Chữ đậm hơn */
-    display: flex; /* Sử dụng flexbox cho icon */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600; 
+    display: flex; 
     align-items: center;
   }
   
   nav a:hover {
-    background-color: #4cc3dd; /* Màu nền khi hover */
-    color: #fff; /* Màu chữ khi hover */
+    background-color: #4cc3dd;
+    color: #fff; 
   }
   
   nav a i {
-    margin-right: 8px; /* Khoảng cách giữa icon và text */
+    margin-right: 8px;
     font-size: 1.1em;
   }
   
   main {
-    padding: 30px; /* Tăng padding */
-    padding-top: 100px; /* Tăng khoảng cách với header */
+    padding: 30px;
+    padding-top: 100px;
     flex-grow: 1;
-    /* Thêm background-image */
-    background-image: url(''); /* Bạn tự thay link ảnh vào đây */
+    background-image: url('');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,73 +121,70 @@ header h2 {
   footer {
   background-color: #333;
   color: #fff;
-  padding: 15px 20px; /* Giảm padding để thu gọn footer */
+  padding: 15px 20px;
   width: 100%;
-  font-size: 0.9em; /* Giảm kích thước font */
-  line-height: 1.6; /* Giảm khoảng cách giữa các dòng */
+  font-size: 0.9em;
+  line-height: 1.6;
   display: flex;
-  flex-direction: column; /* Chuyển footer thành cột */
-  justify-content: center; /* Căn giữa theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
-  border-top: 1px solid #444; /* Giữ đường viền trên để tách biệt với phần nội dung */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  border-top: 1px solid #444; 
 }
 
 footer p {
-  margin: 5px 0; /* Giảm khoảng cách giữa các đoạn */
-  font-family: 'Arial', sans-serif; /* Giữ font chữ Arial */
-  text-align: center; /* Căn giữa nội dung trong mỗi đoạn */
+  margin: 5px 0; 
+  font-family: 'Arial', sans-serif; 
+  text-align: center; 
 }
 
 footer a {
   color: #4cc3dd;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-weight: 500; /* Giữ độ đậm cho liên kết */
+  font-weight: 500;
 }
 
 footer a:hover {
   color: #fff;
-  text-decoration: underline; /* Giữ gạch chân khi hover */
+  text-decoration: underline;
 }
 
-/* Responsive cho footer */
 @media (max-width: 768px) {
   footer {
-    padding: 10px; /* Giảm padding trên thiết bị nhỏ */
+    padding: 10px; 
   }
 }
   
   .badge {
-    background-color: #dc3545; /* Màu đỏ đậm hơn */
+    background-color: #dc3545;
     color: white;
-    padding: 5px 10px; /* Tăng padding */
-    border-radius: 15px; /* Bo tròn góc */
-    font-size: 0.8em; /* Chữ nhỏ hơn */
+    padding: 5px 10px;
+    border-radius: 15px; 
+    font-size: 0.8em; 
     font-weight: 500;
     margin-left: 5px;
   }
-  
-  /* Responsive Design */
+
   @media (max-width: 768px) {
     header {
-      flex-direction: column; /* Chuyển header thành cột */
+      flex-direction: column;
     }
   
     nav ul {
       flex-direction: column;
       align-items: center;
-      width: 95%; /* Menu full width */
+      width: 95%;
     }
 
   nav li {
-    margin: 5px 0; /* Giảm khoảng cách giữa các nút */
+    margin: 5px 0; 
   }
 
     main {
-      padding-top: 180px; /* Tăng khoảng cách với header trên mobile */
+      padding-top: 180px; 
     }
   }
-    /* CSS cho dropdown menu */
     .dropdown {
     position: relative;
     display: inline-block;
@@ -259,7 +252,6 @@ footer a:hover {
       <nav>
         <ul>
           <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
-            <!-- Group: Blog -->
             <li class="dropdown">
               <a href="#" class="dropbtn"><i class="fas fa-layer-group"></i> Blog</a>
               <div class="dropdown-content">
@@ -279,7 +271,6 @@ footer a:hover {
             <li><a href="{% url 'bids:user_bids' %}"><i class="fas fa-money-bill-wave"></i> My Bids</a></li>
             <li><a href="{% url 'auctions:auction-list' %}"><i class="fas fa-gavel"></i> Auctions</a></li>
             <li><a href="{% url 'transactions:transaction-list' %}"><i class="fas fa-receipt"></i> Transactions</a></li>
-            <!-- Group: Jewel -->
             <li class="dropdown">
               <a href="#" class="dropbtn"><i class="fas fa-layer-group"></i> Jewel</a>
               <div class="dropdown-content">
@@ -291,12 +282,10 @@ footer a:hover {
                 {% endif %}
               </div>
             </li>      
-            <!-- Group: Account -->
             <li class="dropdown">
               <a href="#" class="dropbtn"><i class="fas fa-user-circle"></i> Account</a>
               <div class="dropdown-content">
                 <a href="{% url 'users:profile' %}"><i class="fas fa-user"></i> Profile</a>
-                <!-- DASHBOARD -->
                 {% if user.role == 'ADMIN' or user.role == 'MANAGER' %}
                   <a href="{% url 'dashboard' %}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 {% endif %}
@@ -308,7 +297,6 @@ footer a:hover {
           {% else %}
             <li><a href="{% url 'jewelry:jewelry-list' %}"><i class="fas fa-gem"></i> Jewelry</a></li>
             
-                        <!-- Group: Account -->
                         <li class="dropdown">
                           <a href="#" class="dropbtn"><i class="fas fa-user-circle"></i> Account</a>
                           <div class="dropdown-content">

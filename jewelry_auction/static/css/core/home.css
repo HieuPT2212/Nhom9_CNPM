@@ -12,29 +12,28 @@ body {
   padding: 30px;
 }
 
-/* Hero Section */
 .hero-section {
-  background-image: url("{% static 'images/core/hero-image.jpg' %}"); /* Thay ảnh nền */
+  background-image: url("{% static 'images/core/hero-image.jpg' %}"); 
   background-size: cover;
   background-position: center;
   color: #000;
   text-align: center;
-  padding: 100px 0; /* Giảm padding trên dưới */
-  border-radius: 10px 10px 0 0; /* Thêm góc tròn cho phần trên */
+  padding: 100px 0; 
+  border-radius: 10px 10px 0 0; 
 }
 
 .hero-content {
-  background-color: rgba(255, 255, 255, 0.5); /* Thêm màu trắng mờ */
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 30px;
   border-radius: 10px;
 }
 
 .hero-section h1 {
   font-size: 3em;
-  margin-top: 0; /* Loại bỏ margin top */
+  margin-top: 0; 
   margin-bottom: 0px;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Thêm bóng cho chữ */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-section p {
@@ -43,23 +42,22 @@ body {
   margin-bottom: 30px;
 }
 
-/* Intro Section */
 .intro-section {
   margin-bottom: 50px;
-  display: flex; /* Thêm flexbox */
-  flex-direction: column; /* Xếp chồng theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .intro-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #e67e22; /* Màu cam */
-  text-align: center; /* Căn giữa tiêu đề */
+  color: #e67e22; 
+  text-align: center; 
 }
 
 .intro-content {
-  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  width: 100%;
 }
 
 .intro-text {
@@ -69,7 +67,7 @@ body {
   font-size: 1.1em;
   line-height: 1.6;
   margin-bottom: 15px;
-  text-align: justify; /* Căn đều 2 bên */
+  text-align: justify;
 }
 
 .intro-text a {
@@ -79,19 +77,19 @@ body {
 .intro-text a:hover {
   text-decoration: underline;
 }
-/* Policy Section */
+
 .policy-section {
   margin-bottom: 50px;
-  display: flex; /* Thêm flexbox */
-  flex-direction: column; /* Xếp chồng theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .policy-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #e67e22; /* Màu cam */
-  text-align: center; /* Căn giữa tiêu đề */
+  color: #e67e22; 
+  text-align: center; 
 }
 
 .policy-content {
@@ -118,7 +116,6 @@ body {
   line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .hero-section {
     padding: 80px 0;
@@ -134,7 +131,6 @@ body {
 
   .intro-content,
   .policy-content {
-    /* flex-direction: column; */
   }
 
   .intro-section h2,

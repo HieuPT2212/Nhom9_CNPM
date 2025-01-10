@@ -1,5 +1,3 @@
-/* policy.css */
-
 .policy {
   width: 80%;
   margin: 0 auto;
@@ -14,7 +12,7 @@
 
 .policy h1 {
   text-align: center;
-  color: #4cc3dd; /* Màu xanh tạo cảm giác tin cậy */
+  color: #4cc3dd; 
   margin-bottom: 20px;
   font-size: 2.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -37,18 +35,17 @@
 }
 
 .policy li strong {
-  color: #555; /* Màu tối hơn cho tiêu đề */
+  color: #555; 
   display: block;
   margin-bottom: 5px;
 }
 
-/* Tạo dấu đầu dòng giả */
 .policy li::before {
   content: "•";
   position: absolute;
   left: 0;
   top: 0;
-  color: #4cc3dd; /* Màu xanh đồng bộ với tiêu đề */
+  color: #4cc3dd; 
   font-size: 1.5em;
   line-height: 1;
 }

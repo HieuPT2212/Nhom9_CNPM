@@ -1,5 +1,3 @@
-/* profile.css */
-
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(to right, #e0e0e0, #f4f4f4);
@@ -12,7 +10,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
   padding: 30px;
-  margin: 50px auto; /* Căn giữa container và cách top 50px */
+  margin: 50px auto; 
   max-width: 600px;
   width: 90%;
 }
@@ -20,15 +18,15 @@ body {
 .profile-container h2 {
   color: #333;
   text-align: center;
-  margin-top: -20px; /* Chỉnh chữ "Profile" lên cao hơn */
+  margin-top: -20px; 
   margin-bottom: 30px;
   font-size: 2.5em;
   font-weight: 600;
-  text-transform: uppercase; /* Viết hoa tiêu đề */
-  letter-spacing: 1px; /* Giãn cách chữ */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Thêm bóng cho chữ */
-  border-bottom: 1px solid #ccc; /* Thêm đường viền dưới */
-  padding-bottom: 10px; /* Tăng khoảng cách dưới */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #ccc; 
+  padding-bottom: 10px; 
 }
 
 .profile-container p {
@@ -38,73 +36,65 @@ body {
   color: #555;
 }
 
-/* Style cho Name */
 .profile-container p:nth-child(2) {
-  font-size: 1.4em; /* Tăng kích thước font */
-  font-weight: bold; /* In đậm */
-  color: #2980b9; /* Màu xanh dương */
-  margin-bottom: 20px; /* Tăng khoảng cách dưới */
-  text-transform: capitalize; /* Viết hoa chữ cái đầu */
+  font-size: 1.4em; 
+  font-weight: bold; 
+  color: #2980b9; 
+  margin-bottom: 20px;
+  text-transform: capitalize;
 }
 
 .profile-container p:nth-child(2)::before {
-  /* Thêm icon trước Name */
-  content: "\f007"; /* Icon user */
+  content: "\f007"; 
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   margin-right: 10px;
   color: #2980b9;
 }
 
-/* Style cho Username */
 .profile-container p:nth-child(3) {
   font-weight: bold;
-  color: #2980b9; /* Màu xanh dương */
-  font-size: 1.4em; /* Cỡ chữ bằng với Name */
+  color: #2980b9;
+  font-size: 1.4em;
 }
 
 .profile-container p:nth-child(3)::before {
-  /* Thêm icon trước Username */
-  content: "\f007"; /* Icon user */
+  content: "\f007";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   margin-right: 10px;
   color: #2980b9;
 }
 
-/* Style cho Role */
+
 .profile-container p:nth-child(4) {
-  color: #e67e22; /* Màu cam */
-  font-size: 1.4em; /* Cỡ chữ bằng với Name */
-  font-weight: bold; /* In đậm */
+  color: #e67e22;
+  font-size: 1.4em; 
+  font-weight: bold; 
 }
 
 .profile-container p:nth-child(4)::before {
-  /* Thêm icon trước Role */
-  content: "\f0c0"; /* Icon users */
+  content: "\f0c0";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   margin-right: 10px;
   color: #e67e22;
 }
 
-/* Style cho Jcoin balance */
 .profile-container p:nth-child(5) {
   font-weight: bold;
-  color: #27ae60; /* Màu xanh lá cây */
-  font-size: 1.4em; /* Cỡ chữ bằng với Name */
+  color: #27ae60;
+  font-size: 1.4em;
 }
 
 .profile-container p:nth-child(5)::before {
-  /* Thêm icon trước Jcoin balance */
-  content: "\f3d1"; /* Icon coins */
+  content: "\f3d1";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   margin-right: 10px;
   color: #27ae60;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .profile-container {
     margin: 30px auto;
@@ -123,7 +113,7 @@ body {
   .profile-container p:nth-child(3),
   .profile-container p:nth-child(4),
   .profile ```css -container p:nth-child(5) {
-    font-size: 1.4em; /* Giảm kích thước font trên màn hình nhỏ */
-    margin-bottom: 15px; /* Giảm khoảng cách dưới */
+    font-size: 1.4em;
+    margin-bottom: 15px;
   }
 }

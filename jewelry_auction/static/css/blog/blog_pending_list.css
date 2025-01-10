@@ -1,6 +1,3 @@
-/* static/css/blog/blog_pending_list.css */
-
-/* Container */
 .pending-blogs-container {
   width: 90%;
   max-width: 900px;
@@ -12,7 +9,6 @@
   border-radius: 10px;
 }
 
-/* Tiêu đề */
 .pending-blogs-title {
   color: #333;
   text-align: center;
@@ -21,13 +17,11 @@
   font-weight: bold;
 }
 
-/* Danh sách blog */
 .pending-blogs-list {
   list-style: none;
   padding: 0;
 }
 
-/* Item blog */
 .pending-blogs-list-item {
   background-color: #fff;
   margin-bottom: 25px;
@@ -41,21 +35,18 @@
   border-bottom: 3px solid #ccc;
 }
 
-/* Hiệu ứng hover cho item */
 .pending-blogs-list-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Phần header của item (chứa tiêu đề và nút) */
 .blog-header {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Căn giữa theo chiều dọc */
-  margin-bottom: 12px; /* Tạo khoảng cách với phần thông tin tác giả */
+  align-items: center; 
+  margin-bottom: 12px; 
 }
 
-/* Link tiêu đề blog */
 .blog-link {
   text-decoration: none;
   color: #333;
@@ -64,15 +55,14 @@
 }
 
 .blog-info {
-    display: flex; /* Sử dụng flexbox */
-    align-items: center; /* Căn giữa theo chiều dọc */
+    display: flex; 
+    align-items: center; 
   }
   
-  /* Tác giả */
   .blog-author {
     color: #555;
     font-size: 1.2em;
-    margin-left: 5px; /* Tạo khoảng cách với chữ "By" */
+    margin-left: 5px;
     font-style: italic;
   }
 
@@ -80,7 +70,6 @@
   text-decoration: underline;
 }
 
-/* Nút Approve và Reject */
 .approve-link,
 .reject-link {
   padding: 8px 12px;
@@ -92,7 +81,7 @@
   text-decoration: none;
   font-weight: bold;
   margin: 2px;
-  font-size: 1em; /* Chỉnh lại kích thước chữ */
+  font-size: 1em;
 }
 
 .approve-link {
@@ -111,5 +100,5 @@
 }
 
 .button-group {
-  margin-bottom: 0; /* Xóa margin-bottom */
+  margin-bottom: 0;
 }

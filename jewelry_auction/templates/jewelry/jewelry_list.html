@@ -1,61 +1,67 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_list.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>Jewelry List</h1>
+<main id="jewelry-list-page">
+    <div class="container">
+        <h1 class="page-title">Danh sách trang sức</h1>
 
-<form method="get">
-    <input type="text" name="search" placeholder="Search by name...">
-    <button type="submit">Search</button>
-</form>
+        <form method="get" class="search-bar">
+            <input type="text" name="search" placeholder="Tìm kiếm theo tên..." class="search-input">
+            <button type="submit" class="search-button">Tìm kiếm</button>
+        </form>
 
-<a href="?sort=name">Sort by Name (Ascending)</a>
-<a href="?sort=-name">Sort by Name (Descending)</a>
-<a href="?sort=initial_price">Sort by Initial Price (Ascending)</a>
-<a href="?sort=-initial_price">Sort by Initial Price (Descending)</a>
+        <div class="sort-options">
+            <a href="?sort=name" class="sort-link">Sắp xếp theo tên (A-Z)</a>
+            <a href="?sort=-name" class="sort-link">Sắp xếp theo tên (Z-A)</a>
+            <a href="?sort=initial_price" class="sort-link">Sắp xếp theo giá (Tăng dần)</a>
+            <a href="?sort=-initial_price" class="sort-link">Sắp xếp theo giá (Giảm dần)</a>
+        </div>
 
-<div class="jewelry-grid">
-    {% for jewelry in jewelries %}
-    <div class="jewelry-item">
-        <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">
-            {% if jewelry.image_1 %}
-                <img src="{{ jewelry.image_1.url }}" alt="{{ jewelry.name }} Image 1" style="max-width: 200px; max-height: 200px;">
-            {% endif %}
-            {% if jewelry.image_2 %}
-                <img src="{{ jewelry.image_2.url }}" alt="{{ jewelry.name }} Image 2" style="max-width: 200px; max-height: 200px;">
-            {% endif %}
-            {% if jewelry.image_3 %}
-                <img src="{{ jewelry.image_3.url }}" alt="{{ jewelry.name }} Image 3" style="max-width: 200px; max-height: 200px;">
-            {% endif %}
-            <h2>{{ jewelry.name }}</h2>
-        </a>
-        <p>Initial Price: {{ jewelry.initial_price }}</p>
-        <p>Status: {{ jewelry.get_status_display }}</p>
+        <div class="jewelry-grid">
+            {% for jewelry in jewelries %}
+            <div class="jewelry-item">
+                <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}" class="jewelry-link">
+                    {% if jewelry.image_1 %}
+                        <img src="{{ jewelry.image_1.url }}" alt="{{ jewelry.name }} - Ảnh 1" class="jewelry-image">
+                    {% endif %}
+                    {% if jewelry.image_2 %}
+                        <img src="{{ jewelry.image_2.url }}" alt="{{ jewelry.name }} - Ảnh 2" class="jewelry-image">
+                    {% endif %}
+                    {% if jewelry.image_3 %}
+                        <img src="{{ jewelry.image_3.url }}" alt="{{ jewelry.name }} - Ảnh 3" class="jewelry-image">
+                    {% endif %}
+                    <h2 class="jewelry-name">{{ jewelry.name }}</h2>
+                </a>
+                <p class="jewelry-price">Giá khởi điểm: {{ jewelry.initial_price }}</p>
+                <p class="jewelry-status">Trạng thái: {{ jewelry.get_status_display }}</p>
+            </div>
+            {% empty %}
+            <p class="no-results">Không tìm thấy trang sức.</p>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            <span class="page-links">
+                {% if jewelries.has_previous %}
+                    <a href="?page=1" class="page-link">« Đầu tiên</a>
+                    <a href="?page={{ jewelries.previous_page_number }}" class="page-link">Trang trước</a>
+                {% endif %}
+
+                <span class="current-page">
+                    Trang {{ jewelries.number }} / {{ jewelries.paginator.num_pages }}.
+                </span>
+
+                {% if jewelries.has_next %}
+                    <a href="?page={{ jewelries.next_page_number }}" class="page-link">Trang sau</a>
+                    <a href="?page={{ jewelries.paginator.num_pages }}" class="page-link">Cuối cùng »</a>
+                {% endif %}
+            </span>
+        </div>
     </div>
-    {% empty %}
-    <p>No jewelry found.</p>
-    {% endfor %}
-</div>
-
-<div class="pagination">
-    <span class="step-links">
-        {% if jewelries.has_previous %}
-            <a href="?page=1">« first</a>
-            <a href="?page={{ jewelries.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ jewelries.number }} of {{ jewelries.paginator.num_pages }}.
-        </span>
-
-        {% if jewelries.has_next %}
-            <a href="?page={{ jewelries.next_page_number }}">next</a>
-            <a href="?page={{ jewelries.paginator.num_pages }}">last »</a>
-        {% endif %}
-    </span>
-</div>
+</main>
 {% endblock %}

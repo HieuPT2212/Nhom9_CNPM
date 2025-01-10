@@ -1,19 +1,13 @@
-/* Login.css */
-
-/* Loại bỏ display: flex khỏi body */
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(to right, #e0e0e0, #f4f4f4);
   margin: 0;
   padding: 0;
-  /* Loại bỏ display, align-items, justify-content */
-  /* height: auto; Không cần thiết vì đã bỏ display: flex */
 }
 
-/* Thêm class container cho h2 và form */
 .container {
-  padding-top: 5px; /* Điều chỉnh khoảng cách với header */
-  padding-bottom: 50px; /* Điều chỉnh khoảng cách với footer */
+  padding-top: 5px; 
+  padding-bottom: 50px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +16,7 @@ body {
 .container h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px; /* Khoảng cách với form */
+  margin-bottom: 20px; 
 }
 
 .container form {
