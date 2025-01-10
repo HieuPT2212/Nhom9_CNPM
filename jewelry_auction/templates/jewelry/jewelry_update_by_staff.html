@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_update_by_staff.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Update Jewelry (Staff)</h2>
-<form method="post">
+<div class="update-container">
+  <h2>Update Jewelry (Staff)</h2>
+  <form method="post" class="update-form">
     {% csrf_token %}
     <label for="preliminary_price">Preliminary Price:</label>
-    <input type="number" name="preliminary_price" value="{{ jewelry.preliminary_price }}" step="0.01" required><br>
+    <input type="number" name="preliminary_price" value="{{ jewelry.preliminary_price }}" step="0.01" required>
 
+    {% if user.role == 'MANAGER' %}
     <label for="final_price">Final Price:</label>
-    <input type="number" name="final_price" value="{{ jewelry.final_price }}" step="0.01" required><br>
+    <input type="number" name="final_price" value="{{ jewelry.final_price }}" step="0.01" required>
+    {% endif %}
 
     <label for="received_at">Received At:</label>
-    <input type="datetime-local" name="received_at" value="{{ jewelry.received_at|date:'Y-m-d\TH:i' }}" required><br>
+    <input type="datetime-local" name="received_at" value="{{ jewelry.received_at|date:'Y-m-d\TH:i' }}" required>
 
     <button type="submit">Update</button>
-</form>
-<a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">Cancel</a>
+  </form>
+  <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}" class="cancel-link">Cancel</a>
+</div>
 {% endblock %}

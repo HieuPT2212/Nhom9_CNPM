@@ -1,0 +1,81 @@
+/* jewelry_update_by_staff.css */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+  }
+  
+  .update-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #28a745; /* Màu xanh lá */
+  }
+  
+  .update-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .update-form input[type="number"],
+  .update-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .update-form button[type="submit"] 
+  {
+    background-color: #28a745; /* Màu xanh lá */
+    color: white;
+    padding: 8px 16px;
+    border: 2px solid #28a745 ;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    margin: 0 auto
+    width: 150px;
+  }
+  
+  .update-form button[type="submit"]:hover {
+    background-color: #218838; /* Màu xanh lá đậm hơn khi hover */
+  }
+  
+  /* Định dạng nút Cancel */
+  .cancel-link {
+    width: 150px; /* Chiều rộng cố định */
+    margin: 0 auto; /* Căn giữa nút, chỉnh margin-top thành 0 */
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff; /* Màu chữ trắng */
+    background-color: #0d6efd; /* Màu nền xanh dương */
+    border: 2px solid #0b5ed7; /* Viền xanh dương đậm */
+    border-radius: 8px; /* Bo tròn góc */
+    font-size: 18px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    transition: all 0.2s ease; /* Hiệu ứng chuyển đổi */
+  }
+  
+  .cancel-link:hover {
+    background-color: #0b5ed7; /* Màu nền xanh dương đậm hơn khi hover */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Đổ bóng đậm hơn khi hover */
+    transform: translateY(-2px); /* Nâng lên một chút khi hover */
+  }
