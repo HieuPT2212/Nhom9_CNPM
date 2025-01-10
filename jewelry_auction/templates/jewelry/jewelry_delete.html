@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_delete.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Delete Jewelry</h2>
-<p>Are you sure you want to delete {{ jewelry.name }}?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Delete</button>
-    <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}">Cancel</a>
-</form>
+<div class="delete-container">
+    <h2>Delete Jewelry</h2>
+    <p>Are you sure you want to delete {{ jewelry.name }}?</p>
+    <form method="post" class="delete-form">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'jewelry:jewelry-detail' jewelry.pk %}" class="cancel-button">Cancel</a>
+    </form>
+</div>
 {% endblock %}
