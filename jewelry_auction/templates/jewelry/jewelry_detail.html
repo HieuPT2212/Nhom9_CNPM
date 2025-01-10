@@ -1,41 +1,61 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/jewelry/jewelry_detail.css' %}">
 {% endblock %}
 
 {% block content %}
-<h1>{{ jewelry.name }}</h1>
-<p>Owner: {{ jewelry.owner.username }}</p>
-<p>Description: {{ jewelry.description }}</p>
-<p>Initial Price: {{ jewelry.initial_price }}</p>
-{% if jewelry.image_1 %}
-    <img src="{{ jewelry.image_1.url }}" alt="{{ jewelry.name }}">
-{% endif %}
-{% if jewelry.image_2 %}
-    <img src="{{ jewelry.image_2.url }}" alt="{{ jewelry.name }}">
-{% endif %}
-{% if jewelry.image_3 %}
-    <img src="{{ jewelry.image_3.url }}" alt="{{ jewelry.name }}">
-{% endif %}
-<p>Status: {{ jewelry.get_status_display }}</p>
-<p>Preliminary Price: {{ jewelry.preliminary_price }}</p>
-<p>Final Price: {{ jewelry.final_price }}</p>
-<p>Received At: {{ jewelry.received_at }}</p>
-<p>Seller Approved: {{ jewelry.seller_approved }}</p>
+<div class="detail-container">
+  <h1>{{ jewelry.name }}</h1>
 
-{% if user == jewelry.owner %}
-    <a href="{% url 'jewelry:jewelry-update' jewelry.pk %}">Edit</a>
-    <a href="{% url 'jewelry:jewelry-delete' jewelry.pk %}">Delete</a>
-{% endif %}
-{% if user.role == 'STAFF' or user.role == 'MANAGER' or user.role == 'ADMIN' %}    <a href="{% url 'jewelry:jewelry-update-jewelry-by-staff-or-manager' jewelry.pk %}">Update Jewelry</a>
-{% endif %}
-{% if user == jewelry.owner %}
-  <a href="{% url 'jewelry:jewelry-confirm-auction' jewelry.pk %}">Confirm Auction</a>
-{% endif %}
-{% if user.role == 'STAFF' or user.role == 'MANAGER' or user.role == 'ADMIN' %}
-    <a href="{% url 'jewelry:jewelry-approve' jewelry.pk %}">Approve</a>
-    <a href="{% url 'jewelry:jewelry-reject' jewelry.pk %}">Reject</a>
-{% endif %}
+  <div class="detail-info">
+    <p><strong>Owner:</strong> {{ jewelry.owner.username }}</p>
+    <p><strong>Description:</strong> {{ jewelry.description }}</p>
+    <p><strong>Initial Price:</strong> {{ jewelry.initial_price }}</p>
+  </div>
+  
+  <div class="detail-images">
+    {% if jewelry.image_1 %}
+        <img src="{{ jewelry.image_1.url }}" alt="{{ jewelry.name }}">
+    {% endif %}
+    {% if jewelry.image_2 %}
+        <img src="{{ jewelry.image_2.url }}" alt="{{ jewelry.name }}">
+    {% endif %}
+    {% if jewelry.image_3 %}
+        <img src="{{ jewelry.image_3.url }}" alt="{{ jewelry.name }}">
+    {% endif %}
+  </div>
+
+  <div class="detail-info">
+      <p><strong>Status:</strong> {{ jewelry.get_status_display }}</p>
+      {% if user.is_authenticated  %}
+      <p><strong>Preliminary Price:</strong> {{ jewelry.preliminary_price }}</p>
+      <p><strong>Final Price:</strong> {{ jewelry.final_price }}</p>
+      <p><strong>Received At:</strong> {{ jewelry.received_at }}</p>
+      <p><strong>Seller Approved:</strong> {{ jewelry.seller_approved }}</p>
+      {% endif %}
+  </div>
+
+  <div class="detail-actions">
+    {% if user == jewelry.owner %}
+        <!-- Chủ sở hữu có quyền xem và thao tác với trang sức của họ -->
+        <a class="edit-button" href="{% url 'jewelry:jewelry-update' jewelry.pk %}">Edit</a>
+        <a class="delete-button" href="{% url 'jewelry:jewelry-delete' jewelry.pk %}">Delete</a>
+        <a class="confirm-button" href="{% url 'jewelry:jewelry-confirm-auction' jewelry.pk %}">Confirm Auction</a>
+    {% endif %}
+
+    {% if user.role == 'STAFF' %}
+        <!-- Nhân viên chỉ được phép cập nhật -->
+        <a class="update-button" href="{% url 'jewelry:jewelry-update-jewelry-by-staff-or-manager' jewelry.pk %}">Update Jewelry</a>
+    {% endif %}
+
+    {% if user.role == 'MANAGER' or user.role == 'ADMIN' %}
+        <!-- Chấp nhận hoặc từ chối chỉ dành cho Manager và Admin -->
+        <a class="update-button" href="{% url 'jewelry:jewelry-update-jewelry-by-staff-or-manager' jewelry.pk %}">Update Jewelry</a>
+        <a class="approve-button" href="{% url 'jewelry:jewelry-approve' jewelry.pk %}">Approve</a>
+        <a class="reject-button" href="{% url 'jewelry:jewelry-reject' jewelry.pk %}">Reject</a>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}

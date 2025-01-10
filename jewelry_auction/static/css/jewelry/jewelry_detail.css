@@ -1,0 +1,137 @@
+/* jewelry_detail.css */
+
+/* Toàn trang */
+body {
+    font-family: "Arial", sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  /* Khu vực chính */
+  .detail-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tiêu đề */
+  .detail-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Thông tin chi tiết */
+  .detail-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .detail-info strong {
+    font-weight: bold;
+  }
+  
+  /* Hình ảnh */
+  .detail-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .detail-images img {
+    max-width: 300px;
+    max-height: 250px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Nút bấm */
+  .detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .detail-actions a {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail-actions a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Màu sắc nút bấm */
+  .detail-actions .edit-button {
+    background-color: #ffc107; /* Vàng */
+  }
+  
+  .detail-actions .edit-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .detail-actions .delete-button {
+    background-color: #dc3545; /* Đỏ */
+  }
+  
+  .detail-actions .delete-button:hover {
+    background-color: #c82333;
+  }
+  .detail-actions .update-button {
+    background-color: #fd7e14;
+  }
+  .detail-actions .update-button:hover {
+    background-color: #e57112;
+  }
+  
+  .detail-actions .confirm-button {
+    background-color: #28a745; /* Xanh lá */
+  }
+  
+  .detail-actions .confirm-button:hover {
+    background-color: #218838;
+  }
+  
+  .detail-actions .approve-button {
+    background-color: #28a745; /* Xanh lá */
+  }
+  
+  .detail-actions .approve-button:hover {
+    background-color: #218838;
+  }
+  
+  .detail-actions .reject-button {
+    background-color: #dc3545; /* Đỏ */
+  }
+  
+  .detail-actions .reject-button:hover {
+    background-color: #c82333;
+  }
+  /* Responsive cho hình ảnh */
+  @media (max-width: 600px) {
+    .detail-images img {
+      max-width: 100%;
+      max-height: auto;
+    }
+    .detail-actions a {
+      width: 80%;
+    }
+  }
