@@ -10,7 +10,10 @@ class AuctionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Giới hạn queryset của jewelry chỉ hiển thị các jewelry có trạng thái 'APPROVED'
-        self.fields['jewelry'].queryset = self.fields['jewelry'].queryset.filter(status='APPROVED')
+        self.fields['jewelry'].queryset = self.fields['jewelry'].queryset.filter(
+            status='APPROVED', 
+            seller_approved=True
+        )
         self.fields['start_time'].widget = forms.DateTimeInput(attrs={'type': 'datetime-local'})
         self.fields['end_time'].widget = forms.DateTimeInput(attrs={'type': 'datetime-local'})
     def clean(self):
