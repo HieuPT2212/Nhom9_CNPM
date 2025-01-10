@@ -1,0 +1,54 @@
+.create-auction-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-auction-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.create-auction-container form p {
+  margin-bottom: 15px;
+}
+
+.create-auction-container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.create-auction-container form input[type="text"],
+.create-auction-container form input[type="number"],
+.create-auction-container form input[type="datetime-local"],
+.create-auction-container form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.create-auction-container form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.create-auction-container form button[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.create-auction-container .errorlist {
+  color: red;
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0;
+}
