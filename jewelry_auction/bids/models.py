@@ -21,10 +21,10 @@ class Bid(models.Model):
             raise ValidationError("You cannot bid on your own jewelry.")
 
         # Kiểm tra nếu giá thầu thấp hơn giá khởi điểm
-        if self.auction.jewelry.initial_price is None:
+        if self.auction.jewelry.final_price is None:
           raise ValidationError("Initial Price is not set yet")
 
-        if self.amount < self.auction.jewelry.initial_price:
+        if self.amount < self.auction.jewelry.final_price:
             raise ValidationError("Bid amount must be greater than or equal to the initial price.")
 
         # Kiểm tra nếu giá thầu thấp hơn giá thầu cao nhất hiện tại
