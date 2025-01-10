@@ -78,7 +78,7 @@ def my_jewelry_list(request):
     user = request.user
     if user.is_staff:
         if user.groups.filter(name='Manager').exists() or user.is_superuser:
-jewelry_list = Jewelry.objects.all().order_by('-jewelry_id')
+            jewelry_list = Jewelry.objects.all().order_by('-jewelry_id')
         else:
             jewelry_list = Jewelry.objects.filter(status='pending').order_by('-jewelry_id')
     else:
@@ -161,3 +161,6 @@ def jewelry_reject(request, pk):
     if request.method == 'POST':
         jewelry.status = 'REJECTED'
         jewelry.save()
+        return redirect('jewelry:jewelry-detail', pk=jewelry.pk)
+
+    return render(request, 'jewelry/jewelry_reject.html', {'jewelry': jewelry})
