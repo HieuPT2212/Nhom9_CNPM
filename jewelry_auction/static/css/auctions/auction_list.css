@@ -1,0 +1,196 @@
+/* auction_list.css */
+
+/* Toàn trang */
+.auction-list-page {
+    font-family: "Arial", sans-serif;
+    padding: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .page-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Hành động của Manager */
+  .manager-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .create-auction-button {
+    background-color: #4caf50; /* Màu xanh lá */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-auction-button:hover {
+    background-color: #367c39; /* Màu xanh lá sẫm hơn khi hover */
+  }
+  
+  .filter-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .filter-select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .filter-button {
+    background-color: #4caf50; /* Màu xanh lá */
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    background-color: #367c39; /* Màu xanh lá sẫm hơn khi hover */
+  }
+  
+  /* Form tìm kiếm */
+  .search-form {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    background-color: #4caf50; /* Màu xanh lá */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #367c39; /* Màu xanh lá sẫm hơn khi hover */
+  }
+  
+  /* Liên kết sắp xếp */
+  .sort-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  
+  .sort-link {
+    padding: 8px 16px;
+    border: 1px solid #4caf50;
+    border-radius: 20px;
+    color: #4caf50;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sort-link:hover {
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Danh sách đấu giá */
+  .auction-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .auction-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auction-link {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .auction-link:hover {
+color: #4caf50; /* Màu xanh lá khi hover */
+  }
+  
+  .auction-info {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .no-auctions {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Phân trang */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .page-link,
+  .current-page {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .current-page {
+    background-color: #4caf50; /* Màu xanh lá */
+    color: white;
+    border-color: #4caf50; /* Màu xanh lá */
+  }
