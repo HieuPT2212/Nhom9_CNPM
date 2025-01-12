@@ -3,9 +3,6 @@ from blog.models import Blog
 from jewelry.models import Jewelry
 from notifications.models import Notification
 from users.models import User
-from django.core.exceptions import ValidationError
-from .models import FeeConfiguration
-from decimal import Decimal
 # Create your tests here.
 class ViewTestCase(TestCase):
     def setUp(self):
