@@ -12,8 +12,7 @@ class AuctionViewsTestCase(TestCase):
         self.manager = User.objects.create_user(username='manager', password='password', role='MANAGER')
         self.owner = User.objects.create_user(username='owner', password='password', role='MEMBER')
         self.jewelry = Jewelry.objects.create(name='Test Jewelry', owner=self.owner, initial_price=1000)
-        
-        # Tạo đối tượng Auction và gán cho thuộc tính self.auction
+
         self.auction = Auction.objects.create(
             jewelry=self.jewelry,
             manager=self.manager,
@@ -37,24 +36,11 @@ class AuctionViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'auctions/auction_create.html')
 
-    #def test_auction_list_view(self):
-    #    self.client.login(username='manager', password='password')  
-    #    response = self.client.get(reverse('auctions:auction-list'))
-    #    self.assertEqual(response.status_code, 200)
-    #    self.assertTemplateUsed(response, 'auctions/auction_list.html')
-
-    #    auction_list = Auction.objects.all().order_by('start_time')
-    #    paginator = Paginator(auction_list, 5)
-    #    page = response.context.get('page') 
-    #    if page:
-    #        try:
-    #            auctions = paginator.page(page)
-    #        except PageNotAnInteger:
-    #            auctions = paginator.page(1)
-    #        except EmptyPage:
-    #            auctions = paginator.page(paginator.num_pages)
-    #        
-    #        self.assertEqual(len(auctions), 5)  
+    def test_auction_list_view(self):
+        self.client.login(username='manager', password='password')  
+        response = self.client.get(reverse('auctions:auction-list'))  
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'auctions/auction_list.html')
 
     def test_auction_detail_view(self):
         self.client.login(username='manager', password='password')  
