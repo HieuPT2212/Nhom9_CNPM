@@ -42,7 +42,7 @@ class BlogViewsTestCase(TestCase):
             'title': 'New Blog',
             'content': 'This is a new blog.'
         })
-        self.assertEqual(response.status_code, 302)  # Redirect after successful creation
+        self.assertEqual(response.status_code, 302)  
         self.assertTrue(Blog.objects.filter(title='New Blog').exists())
 
     def test_blog_list_view(self):
@@ -60,14 +60,14 @@ class BlogViewsTestCase(TestCase):
     def test_blog_approve_view(self):
         self.client.login(username='admin', password='password')
         response = self.client.post(reverse('blog-approve', args=[self.blog.pk]))
-        self.assertEqual(response.status_code, 302)  # Redirect after successful approval
+        self.assertEqual(response.status_code, 302)  
         self.blog.refresh_from_db()
         self.assertEqual(self.blog.status, 'APPROVED')
 
     def test_blog_reject_view(self):
         self.client.login(username='admin', password='password')
         response = self.client.post(reverse('blog-reject', args=[self.blog.pk]))
-        self.assertEqual(response.status_code, 302)  # Redirect after successful rejection
+        self.assertEqual(response.status_code, 302)  
         self.blog.refresh_from_db()
         self.assertEqual(self.blog.status, 'REJECTED')
 

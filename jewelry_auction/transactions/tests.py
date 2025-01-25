@@ -88,4 +88,4 @@ class TransactionViewsTestCase(TestCase):
     def test_transaction_detail_view_forbidden(self):
         self.client.login(username='user3', password='password')
         response = self.client.get(reverse('transactions:transaction-detail', args=[self.transaction.pk]))
-        self.assertEqual(response.status_code, 403)  # Forbidden
+        self.assertEqual(response.status_code, 403)  
