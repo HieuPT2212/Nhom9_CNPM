@@ -97,3 +97,60 @@ Không commit mật khẩu lên repository.
 Mở trình duyệt và truy cập địa chỉ [http://127.0.0.1:8000/] để kiểm tra.
 
 Đăng nhập vào trang admin [http://127.0.0.1:8000/admin] với tài khoản superuser đã được tạo trong jewelry_auction_data.sql (liên hệ nhóm trưởng để biết thông tin đăng nhập).
+
+# Hướng Dẫn Deploy Jewelry Auction System bằng Docker
+ 
+File launch.json
+    {
+    "configurations": [
+        {
+            "name": "Docker: Python - Django",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "django"
+            }
+        }
+    ]
+}
+
+File tasks.json:
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "docker-build",
+			"label": "docker-build",
+			"platform": "python",
+			"dockerBuild": {
+				"tag": "nhom9cnpm:latest",
+				"dockerfile": "${workspaceFolder}/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug",
+			"dependsOn": [
+				"docker-build"
+			],
+			"python": {
+				"args": [
+					"runserver",
+					"0.0.0.0:8000",
+					"--nothreading",
+					"--noreload"
+				],
+				"file": "jewelry_auction\\manage.py"
+			}
+		}
+	]
+}
