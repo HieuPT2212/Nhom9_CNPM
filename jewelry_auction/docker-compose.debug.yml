@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  nhom9cnpm:
+    image: nhom9cnpm
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 jewelry_auction/manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
+    ports:
+      - 8000:8000
+      - 5678:5678
