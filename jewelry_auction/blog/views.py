@@ -26,7 +26,7 @@ def blog_create(request):
 
 def blog_list(request):
     if request.user.is_authenticated and request.user.role in ['MANAGER', 'ADMIN']:
-        blogs = Blog.objects.all().order_by('-publication_date')
+        blogs = Blog.objects.filter(status='APPROVED').order_by('-publication_date')
     else:
         blogs = Blog.objects.filter(status='APPROVED').order_by('-publication_date')
 

@@ -6,17 +6,20 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Jewelry</h1>
+<h1></h1>
 
-<form method="get">
+<form method="get" id="search-form"> <!-- Thêm id="search-form" -->
     <input type="text" name="search" placeholder="Search by name...">
     <button type="submit">Search</button>
 </form>
 
-<a href="?sort=name">Sort by Name (Ascending)</a>
-<a href="?sort=-name">Sort by Name (Descending)</a>
-<a href="?sort=initial_price">Sort by Initial Price (Ascending)</a>
-<a href="?sort=-initial_price">Sort by Initial Price (Descending)</a>
+<div id="sort-links"> <!-- Thêm id="sort-links" -->
+    <a href="?sort=name">Sort by Name (Ascending)</a>
+    <a href="?sort=-name">Sort by Name (Descending)</a>
+    <a href="?sort=initial_price">Sort by Initial Price (Ascending)</a>
+    <a href="?sort=-initial_price">Sort by Initial Price (Descending)</a>
+</div>
+
 
 <div class="jewelry-grid">
     {% for jewelry in jewelries %}
