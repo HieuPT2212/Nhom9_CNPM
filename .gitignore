@@ -352,6 +352,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
 # PeHatHat
+password.py
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,venv,windows,macos,visualstudiocode

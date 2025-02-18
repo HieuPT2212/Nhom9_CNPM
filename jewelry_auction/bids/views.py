@@ -9,17 +9,6 @@ from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from notifications.models import Notification
 
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Bid
-from auctions.models import Auction
-from .forms import BidForm
-from django.contrib.auth.decorators import login_required
-from django.db import transaction
-from django.http import HttpResponseForbidden
-from django.core.exceptions import ValidationError
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from notifications.models import Notification
-
 @login_required
 def place_bid(request, auction_id):
     auction = get_object_or_404(Auction, pk=auction_id)

@@ -17,6 +17,7 @@ def auction_create(request):
         if form.is_valid():
             auction = form.save(commit=False)
             auction.manager = request.user
+            auction.sell_id = auction.jewelry.owner
             auction.save()
             return redirect('auctions:auction-list')
     else:

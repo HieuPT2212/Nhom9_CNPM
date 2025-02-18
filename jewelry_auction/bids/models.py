@@ -20,12 +20,12 @@ class Bid(models.Model):
         if self.user == self.auction.jewelry.owner:
             raise ValidationError("You cannot bid on your own jewelry.")
 
-        # Kiểm tra nếu giá thầu thấp hơn giá khởi điểm
+        # Kiểm tra nếu giá thầu thấp hơn giá chốt
         if self.auction.jewelry.final_price is None:
           raise ValidationError("Initial Price is not set yet")
 
         if self.amount < self.auction.jewelry.final_price:
-            raise ValidationError("Bid amount must be greater than or equal to the initial price.")
+            raise ValidationError("Bid amount must be greater than the final price.")
 
         # Kiểm tra nếu giá thầu thấp hơn giá thầu cao nhất hiện tại
         highest_bid = Bid.objects.filter(auction=self.auction).aggregate(Max('amount'))['amount__max']

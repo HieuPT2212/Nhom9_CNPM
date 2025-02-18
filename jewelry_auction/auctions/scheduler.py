@@ -17,7 +17,8 @@ def close_auctions():
     now = timezone.now()
     auctions_to_close = Auction.objects.filter(status='OPEN', end_time__lte=now)
     for auction in auctions_to_close:
-        auction.close_auction()
+        print(f"close_auctions: Processing auction ID: {auction.pk}, type: {type(auction)}") # Thêm log này
+        auction.close_auction() # Dòng có vấn đề (theo traceback cũ)
         print(f"Auction {auction.pk} closed.")
 
 def start_scheduler():
