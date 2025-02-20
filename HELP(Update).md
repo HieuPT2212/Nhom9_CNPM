@@ -154,3 +154,15 @@ File tasks.json:
 		}
 	]
 }
+Cấu hình Database trong file settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'db',  # Tên dịch vụ trong docker-compose
+        'PORT': 5432,
+    }
+}
+Sau đó chạy lệnh docker-compose up
