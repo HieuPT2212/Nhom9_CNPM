@@ -70,7 +70,7 @@ DATABASES = {
 }
 ```
 
-##### 5. Đồng bộ dữ liệu mẫu
+#### b. Đồng bộ dữ liệu mẫu
 
 Áp dụng các migrations đó vào database local mỗi khi thay đổi models hoặc lần đầu chạy dự án:
 
@@ -90,7 +90,9 @@ Thay your_password bằng thông tin đăng nhập MySQL của bạn.
 
 Không commit mật khẩu lên repository.
 
-### Cách Chạy Server
+## Cách chạy
+
+### 1.Cách Chạy Server local
 
 `python manage.py runserver`
 
@@ -98,71 +100,82 @@ Mở trình duyệt và truy cập địa chỉ [http://127.0.0.1:8000/] để k
 
 Đăng nhập vào trang admin [http://127.0.0.1:8000/admin] với tài khoản superuser đã được tạo trong jewelry_auction_data.sql (liên hệ nhóm trưởng để biết thông tin đăng nhập).
 
-# Hướng Dẫn Deploy Jewelry Auction System bằng Docker
- 
+### 2.Hướng Dẫn Deploy Jewelry Auction System bằng Docker
+
 File launch.json
-    {
-    "configurations": [
+
+```docker
         {
-            "name": "Docker: Python - Django",
-            "type": "docker",
-            "request": "launch",
-            "preLaunchTask": "docker-run: debug",
-            "python": {
-                "pathMappings": [
-                    {
-                        "localRoot": "${workspaceFolder}",
-                        "remoteRoot": "/app"
-                    }
-                ],
-                "projectType": "django"
+        "configurations": [
+            {
+                "name": "Docker: Python - Django",
+                "type": "docker",
+                "request": "launch",
+                "preLaunchTask": "docker-run: debug",
+                "python": {
+                    "pathMappings": [
+                        {
+                            "localRoot": "${workspaceFolder}",
+                            "remoteRoot": "/app"
+                        }
+                    ],
+                    "projectType": "django"
+                }
             }
-        }
-    ]
-}
+        ]
+    }
+```
 
 File tasks.json:
-{
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "docker-build",
-			"label": "docker-build",
-			"platform": "python",
-			"dockerBuild": {
-				"tag": "nhom9cnpm:latest",
-				"dockerfile": "${workspaceFolder}/Dockerfile",
-				"context": "${workspaceFolder}",
-				"pull": true
-			}
-		},
-		{
-			"type": "docker-run",
-			"label": "docker-run: debug",
-			"dependsOn": [
-				"docker-build"
-			],
-			"python": {
-				"args": [
-					"runserver",
-					"0.0.0.0:8000",
-					"--nothreading",
-					"--noreload"
-				],
-				"file": "jewelry_auction\\manage.py"
-			}
-		}
-	]
-}
-Cấu hình Database trong file settings.py
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'db',  # Tên dịch vụ trong docker-compose
-        'PORT': 5432,
+
+```docker
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "type": "docker-build",
+                "label": "docker-build",
+                "platform": "python",
+                "dockerBuild": {
+                    "tag": "nhom9cnpm:latest",
+                    "dockerfile": "${workspaceFolder}/Dockerfile",
+                    "context": "${workspaceFolder}",
+                    "pull": true
+                }
+            },
+            {
+                "type": "docker-run",
+                "label": "docker-run: debug",
+                "dependsOn": [
+                    "docker-build"
+                ],
+                "python": {
+                    "args": [
+                        "runserver",
+                        "0.0.0.0:8000",
+                        "--nothreading",
+                        "--noreload"
+                    ],
+                    "file": "jewelry_auction\\manage.py"
+                }
+            }
+        ]
     }
-}
+```
+
+Cấu hình Database trong file settings.py
+
+```sql
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'mydatabase',
+            'USER': 'myuser',
+            'PASSWORD': 'mypassword',
+            'HOST': 'db',  # Tên dịch vụ trong docker-compose
+            'PORT': 5432,
+        }
+    }
+```
+
 Sau đó chạy lệnh docker-compose up

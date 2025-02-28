@@ -1,7 +1,0 @@
-@startuml   
-start
-:Người dùng truy cập trang xem thông tin trang sức;
-:Hệ thống truy vấn thông tin trang sức;
-:Hệ thống hiển thị thông tin trang sức;
-stop
-@enduml 

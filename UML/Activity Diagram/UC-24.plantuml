@@ -1,9 +1,0 @@
-@startuml   
-start
-:Phiên đấu giá kết thúc;
-:Hệ thống xác định Buyer có giá thầu cao nhất;
-:Hệ thống cập nhật thông tin người thắng cuộc;
-:Hệ thống gán trang sức cho Buyer thắng cuộc;
-:Hệ thống thông báo cho các bên liên quan;
-stop
-@enduml 

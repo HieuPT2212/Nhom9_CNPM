@@ -1,7 +1,0 @@
-@startuml logout
-start
-:Người dùng nhấn nút "Đăng xuất";
-:Hệ thống đăng xuất người dùng;
-:Hệ thống chuyển hướng đến trang chủ;
-stop
-@enduml

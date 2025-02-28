@@ -1,8 +1,0 @@
-@startuml   
-start
-:Người dùng truy cập trang blog;
-:Hệ thống truy vấn danh sách bài viết;
-:Hệ thống hiển thị danh sách bài viết;
-:(Người dùng có thể chọn xem chi tiết bài viết);
-stop
-@enduml 
