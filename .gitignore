@@ -355,5 +355,21 @@ $RECYCLE.BIN/
 
 # PeHatHat
 password.py
+#Docker
+
+# Docker related files
+.dockerignore
+docker-compose.override.yml
+docker-compose.yml  # (nếu có nhưng không muốn commit)
+*.tar  # Các file export từ container
+*.bak  # File backup của database
+.env  # Nếu bạn sử dụng biến môi trường để cấu hình
+
+# Docker Volumes
+volumes/
+data/
+db_data/
+logs/
+tmp/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,venv,windows,macos,visualstudiocode
