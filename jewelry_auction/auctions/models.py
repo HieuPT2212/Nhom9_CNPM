@@ -19,7 +19,7 @@ class Auction(models.Model):
     jewelry = models.ForeignKey(Jewelry, on_delete=models.CASCADE)
     manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='managed_auctions')
     staff = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_auctions')
-    sell_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='auctioned_jewelries', null=True, blank=True) # <---- THÊM TRƯỜNG sell_id
+    sell_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='auctioned_jewelries', null=True, blank=True) 
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='CREATED')
